@@ -39,7 +39,7 @@ select t.* from banco b, transacciones t where b.codigo_transaccion=t.codigo and
 
 ---Videojuegos y plataformas
 select v.nombre,v.descripcion,v.valoracion,v.valoracion from videojuegos v, plataformas p 
-where (v.codigo=p.codigo_videojuego and v.descripcion='Guerra') or 
+where v.codigo=p.codigo_videojuego and v.descripcion='Guerra' or 
 (v.valoracion>7) or (v.nombre like 'C%' and v.valoracion>8 and v.descripcion like 'D%');
 
 select p.* from videojuegos v, plataformas p where v.codigo=p.codigo_videojuego and v.nombre= 'God of War';
@@ -48,7 +48,7 @@ select p.* from videojuegos v, plataformas p where v.codigo=p.codigo_videojuego 
 --- Resgistros de Entrada y Empleado 
 
 select r.cedula_empleado, e.fecha,e.nombre from registros_entrada r, empleado e where r.codigo_empleado=e.codigo_empleado
-and r.fecha>='2023-08-01' and r.fecha<='2023-08-31' or( r.cedula_empleado like '17%' and r.hora>='08:00:00' and r.hora<='10:00:00') or (
+and (r.fecha>='2023-08-01' and r.fecha<='2023-08-31') or( r.cedula_empleado like '17%' and r.hora>='08:00:00' and r.hora<='10:00:00') or (
    ( r.fecha>='2023-10-06' and r.fecha<='2023-10-20' and r.cedula_empleado like '08%' and r.hora>='09:00:00' and r.hora<='13:00:00'));
 
 
